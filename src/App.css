@@ -1,0 +1,33 @@
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+  html {}
+
+  body {
+    background: linear-gradient(60deg, blue, darkblue,navy ,rgb(16, 5, 71));
+    background-repeat: no-repeat;
+    height: 120vh;
+  }
+  
+  .main {
+    overflow: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+    height: 80vh;
+    color: aliceblue;
+    /* margin-top: 50px; */
+
+  }
+     .main::-webkit-scrollbar {
+      display: none;
+    } 
+.main img{
+  border: 2px solid red;
+  width: 20px;
+  height: 20px;
+}
+  pre {
+    text-align: justify;
+    width: 40vw;
+    white-space: pre-line;
+  }
