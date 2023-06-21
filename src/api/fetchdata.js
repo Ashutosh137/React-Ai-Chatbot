@@ -1,16 +1,16 @@
 const { Configuration, OpenAIApi } = require("openai");
-// const OPENAI_API_KEY=""
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
 
-const Friend = async (ask) => {
+const Friends= async (ask) => {
   const openai = new OpenAIApi(configuration);
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: ask,
-    temperature: 0.1
+    temperature: 0.5,
+    instruction:"you are a friend of 12 year old student named ashutosh who want to interact with you in its free time"
   }).catch((err) => {
     console.log(err);
   });
@@ -18,13 +18,14 @@ const Friend = async (ask) => {
   return data;
 };
 
-const Teacher = async (ask) => {
+const Teachers = async (ask) => {
   const openai = new OpenAIApi(configuration);
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: ask,
-    max_tokens: 10,
-    temperature: 0.3
+    temperature: 0.4,
+    // instruction:"you are a teacher of 12 year old student who want to interact with you in its study time"
+
   }).catch((err) => {
     console.log(err);
   });
@@ -33,17 +34,4 @@ const Teacher = async (ask) => {
   return data;
 };
 
-const edit = async (ask) => {
-  const openai = new OpenAIApi(configuration);
-  const response = await openai.createEdit({
-    model: "text-davinci-edit-001",
-    input: ask,
-    instruction: "Fix the spelling mistakes,and act as friend ",
-  }).catch((err) => {
-      console.log(err);
-    });
-  const data = await response.data.choices[0].text;
-  return data;
-}
-
-export { Friend, Teacher, edit };
+export {Teachers,Friends};
