@@ -5,7 +5,7 @@ export const Chat = (props) => {
     return (
         <div className="py-1 row container m-auto text-capitalize ">
             {role === "user" ? 
-            <div className="d-flex border-1 p-3 border bg-light w-75 justify-content-end rounded border-dark my-3">
+            <div className="d-flex border-1 p-3 border bg-light rounded border-dark my-3">
                 <pre className="h6 col text-end w-75 mx-3">{props.message}</pre>
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRqRyIiwYCq4s-fZi1zdmyfSuIPUvg9EyZ_Q&usqp=CAU" alt="user" />
             </div> :<>
