@@ -10,7 +10,11 @@ const Friend = async (ask) => {
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: ask,
-    temperature: 0.1
+    temperature: 0.1,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0.6,
+    instruction:"Act as a friend and be chill while talking",
   }).catch((err) => {
     console.log(err);
   });
@@ -24,7 +28,11 @@ const Teacher = async (ask) => {
     model: "gpt-3.5-turbo",
     messages: ask,
     max_tokens: 10,
-    temperature: 0.3
+    temperature: 0.3,
+    top_p: 1,
+    frequency_penalty: 0,
+    presence_penalty: 0.6,
+    instruction:"Act as a teacher and give solution to problem asked if the talk is not related to teacher then say i am a teacher not your friend",
   }).catch((err) => {
     console.log(err);
   });
