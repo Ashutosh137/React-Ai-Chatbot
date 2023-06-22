@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Friends } from '../api/fetchdata';
 import { Chat } from '../assist/chat';
 export const Friend = () => {
@@ -9,10 +9,13 @@ export const Friend = () => {
     setload(true);
     const data1 = { role: "user", content: usermessage };
     const chat = [...conversation, data1];
-    console.log(chat);
     const data2 = await Friends(chat).catch((err) => { console.log(err); setload(false); });
-    setConversation([...conversation, data1, data2]);
-    console.log(conversation);
+    if (data2) {
+      setConversation([...conversation, data1, data2]);
+    }
+    else {
+      setConversation([...conversation, data1, { role: "assistent", content: "there has certain problem ,please try again later" }])
+    }
     setusermessage("");
     setload(false);
 
@@ -20,10 +23,10 @@ export const Friend = () => {
 
   return (
     <>
-      <div className="main container  ">
-        <h1 className="text-danger h4 fw-bolder text-capitalize text-center m-5">this is a friend ai </h1>
+      <div className="container m-auto my-4 ">
+        <h1 className="text-danger h4 fw-bolder text-capitalize text-center bg-light rounded p-2">lets interact with a friend</h1>
       </div>
-      <div className="ai container  bg-light">
+      <div className="ai mb-5 text-dark container bg-light rounded">
         {conversation.map((item) => {
           return (
             <Chat role={item.role} message={item.content} />
@@ -40,12 +43,14 @@ export const Friend = () => {
             setusermessage(e.target.value);
           }}
         />
-        {!load ? <button className="btn rounded-pill border border-2 border-dark" onClick={handel}>
-          <i class="bi bi-send"></i>
-        </button> : <button class="btn btn-primary">
-          <span class="spinner-border spinner-border-sm"></span>
-        </button>
-        }
+        {load ? <button class="btn btn-primary">
+                    <span class="spinner-border spinner-border-sm"></span>
+                </button> : <>{usermessage === "" ? <button className="btn rounded-pill disabled border border-2 border-dark" onClick={handel}>
+                    <i class="bi bi-send"></i>
+                </button> : <button className="btn rounded-pill border border-2 border-dark" onClick={handel}>
+                    <i class="bi bi-send"></i>
+                </button>}</>
+                }
 
       </div></>)
 }

@@ -1,23 +1,36 @@
-  .ai {
-    overflow: hidden;
-    overflow-y: scroll;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
-    height: 80vh;
-    color: aliceblue;
+ body {
 
-  }
-     .main::-webkit-scrollbar {
-      display: none;
-    } 
-.ai img{
-  width: 40px;
-  height: 40px;
-}
-  pre {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: justify;
-    color: rgb(5, 5, 235);
-    line-height: 2px;
-    white-space: pre-line;
-  }
+   background-color: navy;
+ }
+
+
+ .ai {
+   overflow: hidden;
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+   height: 80vh;
+   color: aliceblue;
+
+ }
+
+ .ai::-webkit-scrollbar {
+   display: none;
+ }
+
+ .user {
+   margin-left: 20vw;
+   background-color: navy;
+ }
+
+ .ai img {
+   width: 40px;
+   height: 40px;
+ }
+
+ pre {
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   text-align: justify;
+   line-height: 4px;
+   white-space: pre-line;
+ }
