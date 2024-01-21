@@ -19,7 +19,6 @@ const Teachers = async (ask) => {
       console.log(err);
     });
   const data = await completion.data.choices[0].message;
-  console.log(data);
   return data;
 };
 
