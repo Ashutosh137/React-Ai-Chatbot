@@ -5,8 +5,6 @@ const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
 
-console.log(OPENAI_API_KEY)
-
 const Teachers = async (ask) => {
   const openai = new OpenAIApi(configuration);
   const completion = await openai
@@ -18,10 +16,9 @@ const Teachers = async (ask) => {
       presence_penalty: 0.6,
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
-  const data = await completion.data.choices[0].message;
-  return data;
+  return await completion.data.choices[0].message;
 };
 
 export { Teachers };
