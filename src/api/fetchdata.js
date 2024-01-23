@@ -5,6 +5,8 @@ const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
 
+console.log(OPENAI_API_KEY)
+
 const Teachers = async (ask) => {
   const openai = new OpenAIApi(configuration);
   const completion = await openai

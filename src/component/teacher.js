@@ -147,7 +147,6 @@ const Teacher = () => {
                         my="auto"
                         fontSize="medium"
                         textTransform="capitalize"
-                        align="center"
                       >
                         {message.content}
                       </Text>
